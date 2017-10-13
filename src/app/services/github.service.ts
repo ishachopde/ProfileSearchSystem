@@ -13,6 +13,7 @@ export class GithubService{
 		this.username = 'ishachopde';
 	}
 
+	//get user function
 	getUser(){
 	//making a get request
 		return this._http.get('http://api.github.com/users/'+this.username+'?client_id='+this.client_id+'&client_secret'+this.client_secret)
@@ -20,5 +21,11 @@ export class GithubService{
 	// because its json
 	}
 	
-
+	//get repo function
+	getRepos(){
+	//making a get request
+		return this._http.get('http://api.github.com/users/'+this.username+'/repos?client_id='+this.client_id+'&client_secret'+this.client_secret)
+			.map(res => res.json());
+	// because its json
+	}
 }
