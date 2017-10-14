@@ -5,7 +5,7 @@ const app = express();
 
 // Run the app by serving the static files
 // in the dist directory
-app.use(express.static(__dirname + '/src/app/components/profile.component.html'));
+/*app.use(express.static(__dirname + '/src/app/components/profile.component.html'));
 // Start the app by listening on the default
 // Heroku port
 
@@ -23,6 +23,9 @@ const forceSSL = function() {
 // Instruct the app
 // to use the forceSSL
 // middleware
-
+*/
+app.get("/", function(req,res){
+	res.render("/app/components/profile.component.html");
+}).
 app.listen(process.env.PORT || 8080);
-app.use(forceSSL());
+//app.use(forceSSL());
