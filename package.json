@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -10,8 +11,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "post-install": "ng build --aot -prod",
-    "start": "node server.js"
-  },
+      },
   "private": true,
   "dependencies": {
     "@angular/animations": "^4.2.4",
