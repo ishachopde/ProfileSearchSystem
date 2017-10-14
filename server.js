@@ -26,6 +26,7 @@ const forceSSL = function() {
 */
 app.get("/", function(req,res){
 	res.render("/app/components/profile.component.html");
-}).
+});
+
 app.listen(process.env.PORT || 8080);
 //app.use(forceSSL());
