@@ -25,7 +25,7 @@ const forceSSL = function() {
 // middleware
 */
 app.get("/", function(req,res){
-	res.redirect("/app/components/profile.component.html");
+	res.redirect("/src/app/components/profile.component.html");
 });
 
 app.listen(process.env.PORT || 8080);
