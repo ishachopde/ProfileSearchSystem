@@ -6,7 +6,7 @@ const app = express();
 //app.use(express.static(__dirname + '/'));
 // Start the app by listening on the default
 // Heroku port
-//app.listen(process.env.PORT || 8080);
+
 
 const forceSSL = function() {
   return function (req, res, next) {
@@ -21,4 +21,6 @@ const forceSSL = function() {
 // Instruct the app
 // to use the forceSSL
 // middleware
+
+app.listen(process.env.PORT || 8080);
 app.use(forceSSL());
