@@ -1,13 +1,15 @@
-// server.js
 const express = require('express');
 const app = express();
-//var videos = require('./routes/index');
-
 // Run the app by serving the static files
 // in the dist directory
-/*app.use(express.static(__dirname + '/src/app/components/profile.component.html'));
-// Start the app by listening on the default
-// Heroku port
+// If an incoming request uses
+// a protocol other than HTTPS,
+// redirect that request to the
+// same url but with HTTPS
+const path = require('path');
+// ...
+// For all GET requests, send back index.html
+// so that PathLocationStrategy can be used
 
 
 const forceSSL = function() {
@@ -23,10 +25,11 @@ const forceSSL = function() {
 // Instruct the app
 // to use the forceSSL
 // middleware
-*/
-app.get("/", function(req,res){
-	res.redirect("/src/app/components/profile.component.html");
+app.use(forceSSL());
+app.use(express.static(__dirname + '/dist'));
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname + '/dist/index.html'));
 });
-
+// Start the app by listening on the default
+// Heroku port
 app.listen(process.env.PORT || 8080);
-//app.use(forceSSL());
